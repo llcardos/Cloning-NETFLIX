@@ -1,52 +1,76 @@
-const API_KEY = '50945eaa9d8d5e89d5275a5397677d96'
-const API_BASE = 'https://api.themoviedb.org/3/authentication'
+const basicFetch = async (endpoint) => {
+    const req = await fetch(`${API_BASE}${endpoint}`);
+    const json = await req.json();
+    return json;
+}
 
+const API_BASE = 'https://api.themoviedb.org/3/';
 
-
-export default{
+const Tmdb = {
     getHomeList: async () => {
         return [
             {
                 slug: 'originals',
                 title: 'Originais da Netflix',
-                itens: []
+                itens: await basicFetch('discover/tv?with_network=213&language=pt-BR&api_key=c7c2809baf68001b80b498bbe9d35485')
             },
             {
                 slug: 'trending',
                 title: 'Recomendados para você',
-                itens: []
+                itens: await basicFetch('trending/all/week?language=pt-BR&api_key=c7c2809baf68001b80b498bbe9d35485')
             },
             {
-                slug: 'originals',
-                title: 'Originais da Netflix',
-                itens: []
+                slug: 'toprated',
+                title: 'Em Alta',
+                itens: await basicFetch('movie/top_rated?language=pt-BR&api_key=c7c2809baf68001b80b498bbe9d35485')
             },
             {
-                slug: 'originals',
-                title: 'Originais da Netflix',
-                itens: []
+                slug: 'action',
+                title: 'Ação',
+                itens: await basicFetch('discover/movie?with_genres=28&language=pt-BR&api_key=c7c2809baf68001b80b498bbe9d35485')
             },
             {
-                slug: 'originals',
-                title: 'Originais da Netflix',
-                itens: []
+                slug: 'comedy',
+                title: 'Comédia',
+                itens: await basicFetch('discover/movie?with_genres=35&language=pt-BR&api_key=c7c2809baf68001b80b498bbe9d35485')
             },
             {
-                slug: 'originals',
-                title: 'Originais da Netflix',
-                itens: []
+                slug: 'horror',
+                title: 'Terror',
+                itens: await basicFetch('discover/movie?with_genres=27&language=pt-BR&api_key=c7c2809baf68001b80b498bbe9d35485')
             },
             {
-                slug: 'originals',
-                title: 'Originais da Netflix',
-                itens: []
+                slug: 'romance',
+                title: 'Romance',
+                itens: await basicFetch('discover/movie?with_genres=10749&language=pt-BR&api_key=c7c2809baf68001b80b498bbe9d35485')
             },
             {
-                slug: 'originals',
-                title: 'Originais da Netflix',
-                itens: []
+                slug: 'documentary',
+                title: 'Documentário',
+                itens: await basicFetch('discover/movie?with_genres=99&language=pt-BR&api_key=c7c2809baf68001b80b498bbe9d35485')
             }
         ]
+    },
+
+    getMovieInfo: async (movieId, type) => {
+        let info = {};
+
+        if(movieId) {
+            switch(type) {
+                case 'movie':
+                    info = await basicFetch(`movie/${movieId}?language=pt-BR&api_key=c7c2809baf68001b80b498bbe9d35485`);
+                break;
+                case 'tv':
+                    info = await basicFetch(`tv/${movieId}?language=pt-BR&api_key=c7c2809baf68001b80b498bbe9d35485`);
+                break;
+                default:
+                    info = null;
+                break;
+            }
+        }
+        return info;
     }
 
 }
+
+export default Tmdb;

@@ -50,8 +50,7 @@ const Tmdb = {
                 itens: await basicFetch('discover/movie?with_genres=99&language=pt-BR&api_key=c7c2809baf68001b80b498bbe9d35485')
             }
         ]
-    },
-
+    },   
     getMovieInfo: async (movieId, type) => {
         let info = {};
 
@@ -66,6 +65,10 @@ const Tmdb = {
                 default:
                     info = null;
                 break;
+            }
+
+            if (!info.overview) {
+                info = null; // Remove as informações se não houver descrição
             }
         }
         return info;

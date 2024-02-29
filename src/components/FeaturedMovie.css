@@ -47,6 +47,10 @@
     font-size: 20px;
     color: #999;
     max-width: 40%;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .featured--buttons {

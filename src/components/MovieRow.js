@@ -1,10 +1,18 @@
 import React from 'react';
 import './MovieRow.css';
+import NavigateBeforeOutlinedIcon from '@mui/icons-material/NavigateBeforeOutlined';
+import NavigateNextOutlinedIcon from '@mui/icons-material/NavigateNextOutlined';
 
 export default ({title, itens}) => {
     return (
         <div className='movieRow'>
             <h2>{title}</h2>
+            <div className='movieRow--left'>
+                <NavigateBeforeOutlinedIcon style={{fontSize: 50}}/>
+            </div>
+            <div className='movieRow--right'>
+                <NavigateNextOutlinedIcon style={{fontSize: 50}}/>
+            </div>
             <div className='movieRow--listarea'>
                 <div className='movieRow--list'>
                     {itens.results.length > 0 && itens.results.map((item, key)=>(

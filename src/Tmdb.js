@@ -68,7 +68,7 @@ const Tmdb = {
             }
 
             if (!info.overview) {
-                info = null; // Remove as informações se não houver descrição
+                info = null;
             }
         }
         return info;

@@ -1,16 +1,31 @@
-![projeto](Projetos/Cloning-NETFLIX/img/tela-clone-netflix.jpg)
-
 # Clone do Streaming Netflix - Utilizando a API do site Tmdb
-bla bla bla
+![image](https://github.com/llcardos/Cloning-NETFLIX/assets/137669141/2a3ea781-d9a1-4573-9d9b-6e2e835dbf69)
 
-# adicionando os icones 
-entrar no site (https://mui.com/material-ui/getting-started/), realizar a instalação
+# Retirando as informações da API utilizada
 
+- (https://developer.themoviedb.org/reference/discover-movie) 
+- (https://developer.themoviedb.org/reference/discover-tv)
+
+  Ambos possuem uma aba de exemplos com todas as informações que poderam ser retiradas para realizar o pedido api afim de executar um determinado comando
+- Gêneros dos filmes através de IDs
+- Ano de lançamento
+- Quantidade de temporadas
+- Popularidade
+
+# Importando os ícones de rolagem dos filmes
+Entre no site (https://mui.com/material-ui/getting-started/) para ter acesso a documentação
+
+Faça a instalação em seu cmd
+
+```sh
 npm install @mui/icons-material @mui/material @emotion/styled @emotion/react
+```
 
-digitar na barra de pesquisa "navigate" e importar os 2 icones 
+Vá até o link (https://mui.com/material-ui/material-icons/?theme=Outlined) e procure por "NAVIGATE" em Search Icons...
 
-import NavigateBeforeOutlinedIcon from '@mui/icons-material/NavigateBeforeOutlined'; (esqueda)
-import NavigateNextOutlinedIcon from '@mui/icons-material/NavigateNextOutlined'; (direita)
+Importe esses dois ícones em seu arquivo MovieRow.js
 
-colocar no MovieRow.js dentro de uma div com style= font-size 50px
+```sh
+import NavigateBeforeOutlinedIcon from '@mui/icons-material/NavigateBeforeOutlined' //(esqueda)
+import NavigateNextOutlinedIcon from '@mui/icons-material/NavigateNextOutlined' //(direita)
+```

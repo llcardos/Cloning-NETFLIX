@@ -1,4 +1,4 @@
-![projeto](C:\Users\luqui\OneDrive\Pictures\Capturas de tela/tela-clone-netflix)
+![projeto](Projetos/Cloning-NETFLIX/img/tela-clone-netflix.jpg)
 
 # Clone do Streaming Netflix - Utilizando a API do site Tmdb
 bla bla bla
